@@ -10,23 +10,28 @@ def is_palendrome?(string)
 end
 
 def largest_of_3_by_3()
-	i = 999
-	j = 999
+	max = 999
+	i = max
 	num = 0
 	is_palendrome = false
-	while i > 0 or j > 0 do
-		num = i * j
-		is_palendrome = is_palendrome?(num.to_s)
-
-		break if is_palendrome
-
-		if i > j
-			i -= 1
-		else
-			j -= 1
+	while i > 0 do
+		j_list =* max.downto(i)
+		j_index = 0
+		while j_index < j_list.length do
+			num = i * j_list[j_index]
+			is_palendrome = is_palendrome?(num.to_s)
+			break if is_palendrome
+			j_index += 1
 		end
+		break if is_palendrome
+		i -= 1
 	end
-	num
+
+	if is_palendrome
+		num
+	else
+		nil
+	end
 end
 
 puts largest_of_3_by_3
