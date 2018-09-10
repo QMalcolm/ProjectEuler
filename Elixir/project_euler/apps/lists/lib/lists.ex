@@ -15,4 +15,12 @@ defmodule Lists do
   def sum_int_list(list) when is_list(list) do
     Enum.reduce(list, 0, fn x, acc -> x + acc end)
   end
+
+  def remove_factors(divisor, candidates) when is_integer(divisor) and is_list(candidates) do
+    candidates
+    |> Flow.from_enumerable
+    |> Flow.reject(fn x -> rem(x, divisor) == 0 end)
+    |> Enum.to_list
+    |> Enum.sort
+  end
 end
