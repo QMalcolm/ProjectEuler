@@ -34,4 +34,9 @@ defmodule Numbers.Multiples do
     |> Flow.reject(fn x -> not is_multiple_of_and?(x, mods) end)
     |> Enum.to_list
   end
+
+  def lcm_list(list) when is_list(list) do
+    Lists.prod_int_list(list)
+    |> div(Numbers.Factors.gcd_list(list))
+  end
 end
