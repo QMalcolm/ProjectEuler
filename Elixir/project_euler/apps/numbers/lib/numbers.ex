@@ -15,4 +15,12 @@ defmodule Numbers do
   def hello do
     :world
   end
+
+  def to_list(num) do
+    num
+    |> Integer.to_string
+    |> String.graphemes
+    |> Enum.reduce([], fn x, acc -> [String.to_integer(x) | acc] end)
+    |> Enum.reverse
+  end
 end
