@@ -23,4 +23,9 @@ defmodule Numbers do
     |> Enum.reduce([], fn x, acc -> [String.to_integer(x) | acc] end)
     |> Enum.reverse
   end
+
+  def factorial(num) when num <= 0, do: 1
+  def factorial(num) do
+    num * factorial(num-1)
+  end
 end
